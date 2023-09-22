@@ -23,7 +23,8 @@ export class AuthController {
 
         const token = sign({ id: user.id }, "secret", { expiresIn: "id" })
 
+        const { id } = user
 
-        return res.json({ user, token })
+        return res.json({ user: { id, email }, token })
     }
 }
