@@ -1,4 +1,7 @@
 {
+  "scripts": {
+    "dev": "ts-node-dev --respawn --transpile-only --files src/server.ts"
+  },
   "dependencies": {
     "@prisma/client": "^5.3.1",
     "@types/bcryptjs": "^2.4.4",
