@@ -21,7 +21,7 @@ export class AuthController {
             return res.json({ erro: "Invalid password" })
         }
 
-        const token = sign({ id: user.id }, "secret", { expiresIn: "id" })
+        const token = sign({ id: user.id }, "secret", { expiresIn: "1d" })
 
         const { id } = user
 

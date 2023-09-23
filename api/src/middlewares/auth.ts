@@ -17,7 +17,7 @@ export function AuthMiddlwares(
         return res.status(401).json({ error: 'Token not provided' })
     }
 
-    const [, token] = authorization.split('')
+    const [, token] = authorization.split(' ')
 
     try {
         const decoded = verify(token, "secret")

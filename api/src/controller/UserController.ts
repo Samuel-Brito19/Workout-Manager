@@ -7,6 +7,8 @@ export class UserController {
     async index(req: Request, res: Response) {
         const users = await prisma.user.findMany()
 
+
+
         return res.json({ users })
     }
     async store(req: Request, res: Response) {
@@ -14,8 +16,9 @@ export class UserController {
 
         const userExists = await prisma.user.findUnique({ where: { email } })
 
-        if (!userExists) {
-            return res.json({ error: "User not found!" })
+
+        if (userExists) {
+            return res.json({ error: "User already exists!" })
         }
 
         const hash_password = await hash(password, 8)
@@ -28,6 +31,13 @@ export class UserController {
             }
         })
 
-        return res.json({ user })
+
+        return res.json({
+            user: {
+                id: user.id,
+                name: user.name,
+                email: user.email
+            }
+        })
     }
 }
