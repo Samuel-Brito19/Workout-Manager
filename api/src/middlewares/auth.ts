@@ -24,6 +24,7 @@ export function AuthMiddlwares(
         const { id } = decoded as TokenPayload
 
         req.userId = id
+        next()
     } catch (error) {
         return res.status(401).json({ error: 'Token invalid' })
     }
