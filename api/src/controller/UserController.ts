@@ -7,9 +7,15 @@ export class UserController {
     async index(req: Request, res: Response) {
         const users = await prisma.user.findMany()
 
+        const userNoPassword = users.map(user => {
+            return {
+                id: user.id,
+                name: user.name,
+                email: user.email
+            }
+        })
 
-
-        return res.json({ users })
+        return res.json({ userNoPassword })
     }
     async store(req: Request, res: Response) {
         const { name, email, password } = req.body
