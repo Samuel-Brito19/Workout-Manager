@@ -24,7 +24,7 @@ border-radius: 10px;
 overflow: hidden;
 height: 400px;
 
-& form {
+& > div {
     display: flex;
     flex-direction: column;
     align-items: center;

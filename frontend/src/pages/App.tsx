@@ -1,16 +1,33 @@
-import * as Styled from './styles/style'
+import * as Styled from '../styles/style'
 import { useState } from 'react'
+import { api } from '../services/api'
 
 function App() {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
-  return (
 
+  const handleLogin = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+
+    try {
+      const response = await api.post('/auth', {
+        email,
+        password
+      })
+      console.log(response.data)
+      const { user, token } = response.data
+      console.log(user, token)
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  return (
     <Styled.Container>
       <div>
 
-        <Styled.LoginWrap>
-          <form>
+        <Styled.LoginWrap onSubmit={handleLogin}>
+          <div>
             <h2>LOGIN</h2>
             <div>
 
@@ -26,8 +43,8 @@ function App() {
                 onChange={e => setPassword(e.target.value)}
                 placeholder="Enter Password" />
             </div>
-            <button>Login</button>
-          </form>
+            <button type="submit">Login</button>
+          </div>
         </Styled.LoginWrap>
 
 
