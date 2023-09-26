@@ -7,6 +7,7 @@ export class UserController {
     async index(req: Request, res: Response) {
         const users = await prisma.user.findMany()
 
+
         const userNoPassword = users.map(user => {
             return {
                 id: user.id,
@@ -19,6 +20,7 @@ export class UserController {
     }
     async store(req: Request, res: Response) {
         const { name, email, password } = req.body
+
 
         const userExists = await prisma.user.findUnique({ where: { email } })
 
@@ -33,7 +35,8 @@ export class UserController {
             data: {
                 name,
                 email,
-                password: hash_password
+                password: hash_password,
+
             }
         })
 
