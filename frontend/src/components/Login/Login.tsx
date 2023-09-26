@@ -1,6 +1,6 @@
-import * as Styled from '../styles/style'
+import * as Styled from './style'
 import { useState } from 'react'
-import { api } from '../services/api'
+import { api } from '../../services/api'
 
 
 function Login() {
