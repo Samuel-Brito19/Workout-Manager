@@ -1,4 +1,4 @@
-import * as Styled from './style'
+import * as Styled from './styles'
 import { useState } from 'react'
 import { api } from '../../services/api'
 

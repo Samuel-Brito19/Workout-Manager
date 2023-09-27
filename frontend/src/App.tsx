@@ -1,9 +1,9 @@
 
-import Login from './components/Login/Login'
+import { Workout } from './components/Workout/Workout'
 
 function App() {
   return (
-    <Login />
+    <Workout />
 
   )
 }
