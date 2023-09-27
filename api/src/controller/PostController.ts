@@ -32,7 +32,7 @@ export class PostController {
         }
     }
 
-    async updateExersice(req: Request, res: Response) {
+    async updateExercise(req: Request, res: Response) {
 
         try {
             const updateExersice = await prisma.exercise.update({

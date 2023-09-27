@@ -1,9 +1,9 @@
+import { Form } from "./components/Exersices/Form/Form"
 
-import { Workout } from './components/Workout/Workout'
 
 function App() {
   return (
-    <Workout />
+    <Form />
 
   )
 }
