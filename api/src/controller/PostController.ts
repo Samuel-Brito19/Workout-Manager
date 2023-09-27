@@ -57,5 +57,17 @@ export class PostController {
         }
     }
 
+    async deleteExercise(req: Request, res: Response) {
+        try {
+            const deleteUser = await prisma.exercise.delete({
+                where: {
+                    id: req.body.id
+                }
+            })
 
+            return res.status(200).json({ deleteUser })
+        } catch {
+            return res.status(500).json({ error: 'cannot delete the user' })
+        }
+    }
 }
